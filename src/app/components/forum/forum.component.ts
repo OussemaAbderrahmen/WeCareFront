@@ -50,7 +50,6 @@ export class ForumComponent implements OnInit {
    deletePost(id:number){
 
     console.log(`delete post ${id}`);
-    
     this.postService.deletePost(id).subscribe(
         response=>{
           console.log(response);
