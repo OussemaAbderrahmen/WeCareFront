@@ -45,6 +45,11 @@ export class FullComponent {
       menu: "Forms",
     },
     {
+      link:"forum",
+      icon:"layout",
+      menu:"Forum"
+    },
+    {
       link: "/alerts",
       icon: "info",
       menu: "Alerts",
