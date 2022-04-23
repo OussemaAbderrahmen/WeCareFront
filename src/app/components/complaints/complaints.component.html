@@ -1,0 +1,41 @@
+<h1>Complaint's List</h1>
+
+
+<div class="container">
+<table class="table">
+  
+  <thead>
+    <tr>
+      <th>ComplaintsId</th>
+      <th>ComplaintDate</th>
+      <th>ComplaintImage</th>
+      <th>ComplaintDescription</th>
+      <th>status</th>
+      <th>ComplaintType</th>
+    </tr>
+  </thead>
+  <tbody  *ngFor="let complaint of listComplaints" >
+    <tr>
+      <td>{{complaint.complaintId}}</td>
+      <td>{{complaint.complaintDate | date | uppercase}}</td>
+      <td>{{complaint.complaintImage}}</td>
+      <td>{{complaint.complaintDescription}}</td>
+      <td>{{complaint.status}}</td>
+      <td>{{complaint.complaintType}}</td>
+   
+      <td><button  class="btn btn-success">update</button></td>
+    <td><button (click)="deleteComplaint(complaint.complaintId)" class="btn btn-danger">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+<div class="row">
+      <td><button  class="btn btn-success">add</button></td>
+
+</div>
+<!-- <iframe
+    allow="microphone;"
+    width="350"
+    height="430"
+    src="https://console.dialogflow.com/api-client/demo/embedded/b1dc394e-07cd-4054-98ac-d098a51a8720">
+</iframe> -->
+</div>
