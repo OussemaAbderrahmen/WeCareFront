@@ -24,12 +24,14 @@
       <td>{{complaint.complaintType}}</td>
    
       <td><button  class="btn btn-success">update</button></td>
-    <td><button (click)="deleteComplaint(complaint.complaintId)" class="btn btn-danger">Delete</button></td>
+    <td> <button (click)="deleteComplaint(complaint.complaintId)" class="btn btn-danger">Delete</button></td>
     </tr>
   </tbody>
 </table>
 <div class="row">
-      <td><button  class="btn btn-success">add</button></td>
+     <td><button type="button" class="btn btn-success" (click)="btnClick();"><i class="fa fa-plus"></i> Add</button>   </td>  
+
+
 
 </div>
 <!-- <iframe

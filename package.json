@@ -24,6 +24,7 @@
     "@types/chart.js": "^2.9.36",
     "angular-feather": "^6.3.0",
     "apexcharts": "^3.35.0",
+    "bootstrap": "^3.3.7",
     "ng-apexcharts": "^1.7.1",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",

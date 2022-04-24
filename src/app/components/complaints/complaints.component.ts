@@ -2,17 +2,25 @@ import { Component, Injectable ,OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ComplaintService } from 'src/app/Service/complaint.service';
 
-export class Complaints{
-     constructor( 
+export  class Complaints{
+  constructor(){}
+
+  public complaintId: number = 0;
+  public complaintDate: Date =  new Date() ;
+  public complaintImage: string ='';
+  public complaintDescription: string ='';
+  public status: boolean = false;
+  public complaintType: string ='';
+
+/*      constructor( 
        public complaintId : number,
         public complaintDate : Date,
         public complaintImage : string,
         public complaintDescription : string,
         public status : boolean,
         public  complaintType : string) 
-        { 
-       
-  } 
+        {}  */
+         
 }
 @Component({
   selector: 'app-complaints',
@@ -53,6 +61,12 @@ message ="";
          );
           
        })}
+       btnClick=  () => {
+        this.router.navigateByUrl('/add-complaint');
+};
+
+
+      
   
 
 }

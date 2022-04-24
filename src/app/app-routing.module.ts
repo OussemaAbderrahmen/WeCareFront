@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddComplaintComponent } from './components/add-complaint/add-complaint.component';
 import { AlertsComponent } from './components/alerts/alerts.component';
 import { ButtonsComponent } from './components/buttons/buttons.component';
 import { ChipsComponent } from './components/chips/chips.component';
@@ -43,7 +44,8 @@ const routes: Routes = [
       {path:"slide-toggle", component:SlideToggleComponent},
       {path:"tooltip", component:TooltipsComponent},
       {path:"button", component:ButtonsComponent},
-      {path:"complaints",component:ComplaintsComponent}
+      {path:"complaints",component:ComplaintsComponent},
+      {path:"add-complaint",component:AddComplaintComponent}
     ]
   },
 
