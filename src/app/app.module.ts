@@ -13,11 +13,20 @@ import { DemoFlexyModule } from './demo-flexy-module'
 // Modules
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ComponentsModule } from './components/components.module';
+import { PostComponent } from './components/forum/update-post/update-post.component';
+import { AddPostComponent } from './components/forum/add-post/add-post.component';
+import { ForumFrontComponent } from './forum-front/forum-front.component';
+import { AddDictionaryComponent } from './components/forum/add-dictionary/add-dictionary.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    FullComponent
+    FullComponent,
+    PostComponent,
+    AddPostComponent,
+    ForumFrontComponent,
+    AddDictionaryComponent
   ],
   imports: [
     BrowserModule,

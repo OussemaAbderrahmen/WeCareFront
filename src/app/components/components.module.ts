@@ -20,6 +20,10 @@ import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
 import { ForumComponent } from './forum/forum.component'
+import { PostComponent } from './forum/update-post/update-post.component';
+import { ForumFrontComponent } from '../forum-front/forum-front.component';
+import { UpdateDictionaryComponent } from './forum/update-dictionary/update-dictionary.component';
+
 
 
 @NgModule({
@@ -40,6 +44,8 @@ import { ForumComponent } from './forum/forum.component'
     ButtonsComponent,
     TooltipsComponent,
     ForumComponent,
+    UpdateDictionaryComponent
+
   ],
   imports: [
     CommonModule,
@@ -62,6 +68,7 @@ import { ForumComponent } from './forum/forum.component'
     SliderComponent,
     SlideToggleComponent,
     ButtonsComponent,
+    ForumComponent
   ]
 })
 export class ComponentsModule { }

@@ -1,0 +1,103 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="container">
+<div class="row">
+   
+            <div class="col-sm-12" *ngFor="let post of listPosts" >
+                <div class="panel panel-white post">
+                    <div class="post-heading">
+                        <div class="pull-left image">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-circle avatar" alt="user profile image">
+                        </div>
+                        <div class="pull-left meta">
+                            <div class="title h5">
+                                <a href="#">Oussema<b></b></a>
+                                uploaded a photo.
+                            </div>
+                            <h6 class="text-muted time">{{post.datePost | date}}</h6>
+                        </div>
+                    </div>
+                    <div class="" style="align-items: center; align-content: center; margin-left: 240px;">
+                        <img src="../../assets/images/u3.webp" class="image" alt="image post">
+                    </div>
+                    <div class="post-description">
+                        <h4>{{post.titlePost}}</h4>
+                        <p>{{post.descriptionPost}}</p>
+                        <div class="stats">
+                            <div class="btn btn-default stat-item">
+                                <i class="fa fa-thumbs-up icon" (click)="likePost(post,post.postId);"></i>{{post.nbLikes}}
+                                <i class="fa fa-thumbs-down icon" style="margin-left: 15px;" (click)="dislikePost(post,post.postId);"></i>{{post.nbDislikes}}
+                                <i class="fa fa-reply icon" style="margin-left: 15px;" ></i>{{post.nbComment}}
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="post-footer" >
+                        <div class="input-group"> 
+                            <input class="form-control" [(ngModel)]="comment.comment" placeholder="Add a comment" type="text">
+                            <div class="input-group-addon">
+                                <i class="fa fa-edit" (click)="commentPost(post.postId)"></i> 
+                            </div>
+                        </div> 
+                        <ul class="comments-list" *ngFor="let c of post.commentposts">
+                            <li class="comment" >
+                                
+                                <a class="pull-left" href="javascript:void(0);">
+                                    <img class="avatar" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
+                                </a>
+                                <div class="comment-body">
+                                    <div class="comment-heading">
+                                        <h4 class="user">oussema</h4>
+                                        <h5 class="time">{{c.commentDate | date }}</h5>
+                                    </div>
+                                    <p>{{c.comment}}</p>
+                                    <!-- <div class="input-group" > 
+                                        <input class="form-control" [(ngModel)]="responseComment.comment" placeholder="Response on Comment" type="text">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit" (click)="commentOnComment(c.commId);"></i> 
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div class="stats">
+                                    <div class="btn btn-default stat-item">
+                                        <i class="fa fa-thumbs-up icon"(click)="likeComment(c,c.commId);"></i>{{c.nbLikesComment}}
+                                        <i class="fa fa-thumbs-down icon" style="margin-left: 15px;" (click)="dislikeComment(c,c.commId);"></i>{{c.nbDislikesComments}}
+                                       <!-- <i class="fa fa-reply icon" style="margin-left: 15px;" ></i> -->
+                                    </div>
+                                   
+                                </div>
+                                <!-- <div class="comment-body"  *ngFor="let cc of c.responseComment">
+                                    <div class="comment-heading">
+                                        <h4 class="user">oussema</h4>
+                                        <h5 class="time">{{cc.commentDate | date }}</h5>
+                                    </div>
+                                    <p>{{cc.comment}}</p>
+                                    </div> -->
+                            </li>
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+                
+            </div>
+<!--             
+            <iframe
+            allow="microphone;"
+            width="350"
+            height="430"
+            src="https://console.dialogflow.com/api-client/demo/embedded/b1dc394e-07cd-4054-98ac-d098a51a8720">
+        </iframe> -->
+        </div>
+        <!-- Search Box
+<div *ngIf="search" class="search-section d-flex align-items-center">
+    <mat-form-field class="w-100" color="primary" appearance="legacy">
+      <mat-label class="fs-16">Search Here</mat-label>
+      <input matInput>
+    </mat-form-field>
+    <button mat-icon-button (click)="search=!search">
+      <i-feather name="x-circle" class="mt-n3 text-light-muted feather-base text-dark"></i-feather>
+    </button>
+  </div> -->
+    </div>
+

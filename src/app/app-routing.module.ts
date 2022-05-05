@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { AlertsComponent } from './components/alerts/alerts.component';
 import { ButtonsComponent } from './components/buttons/buttons.component';
 import { ChipsComponent } from './components/chips/chips.component';
 import { ExpansionComponent } from './components/expansion/expansion.component';
 import { FormsComponent } from './components/forms/forms.component';
+import { AddDictionaryComponent } from './components/forum/add-dictionary/add-dictionary.component';
+import { AddPostComponent } from './components/forum/add-post/add-post.component';
 import { ForumComponent } from './components/forum/forum.component';
+import { UpdateDictionaryComponent } from './components/forum/update-dictionary/update-dictionary.component';
+import { PostComponent } from './components/forum/update-post/update-post.component';
 import { GridListComponent } from './components/grid-list/grid-list.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ProgressSnipperComponent } from './components/progress-snipper/progress-snipper.component';
@@ -18,7 +23,9 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { TooltipsComponent } from './components/tooltips/tooltips.component';
 import { ProductComponent } from './dashboard/dashboard-components/product/product.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ForumFrontComponent } from './forum-front/forum-front.component';
 import { FullComponent } from './layouts/full/full.component';
+
 
 const routes: Routes = [
   {
@@ -43,7 +50,13 @@ const routes: Routes = [
       {path:"slide-toggle", component:SlideToggleComponent},
       {path:"tooltip", component:TooltipsComponent},
       {path:"button", component:ButtonsComponent},
-      {path:"forum",component:ForumComponent}
+      {path:"forum",component:ForumComponent},
+      {path:"post/:id",component:PostComponent},
+      {path:"addpost",component:AddPostComponent},
+      {path:"forumfront",component:ForumFrontComponent},
+      {path:"addictionary",component:AddDictionaryComponent},
+      {path:"updatedictionary/:id",component:UpdateDictionaryComponent}
+
     ]
   },
 
