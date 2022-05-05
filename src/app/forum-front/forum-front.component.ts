@@ -69,11 +69,11 @@ export class ForumFrontComponent implements OnInit {
  
    commentOnComment(commentId:number){
   this.commentService.commentOnComment(this.comment,commentId).subscribe(
-    response=>{
+    response2=>{
       console.log("adding a comment on comment ")
       this.commentService.retrieveAllComments().subscribe(
         response => {
-         console.log(response);
+         console.log(response2);
          this.listResponseComment = response;
           this.ngOnInit()
 })
