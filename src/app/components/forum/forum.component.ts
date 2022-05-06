@@ -4,7 +4,8 @@ import { DictionaryService } from 'src/app/Service/dictionaryService/dictionary.
 import { Posts } from 'src/app/models/Posts';
 import { Dictionary } from 'src/app/models/Dictionary';
 import { PostServiceService } from 'src/app/Service/PostService/post-service.service';
-
+import { NgxPaginationModule } from 'ngx-pagination'; // At the top of your module
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-forum',
@@ -18,14 +19,17 @@ export class ForumComponent implements OnInit {
    listPosts: Posts[] = [];
    bestPosts : Posts[]=[];
    listWords : Dictionary[] = [];
-
+   p:number =1;
+   pDictionnary : number =1;
   constructor(
     public postService : PostServiceService,
     public dictionaryService : DictionaryService,
-    public router : Router
+    public router : Router,
+    private toastr : ToastrService
     
     ) { }
 
+ 
   ngOnInit(): void {
     this.postService.retrieveAllPosts().subscribe(
       response => {
@@ -101,6 +105,7 @@ if(window.confirm("Are you sure you want to delete this post !!")){
   }
 
   addWord(){
+  
     this.router.navigate(["addictionary"])
   }
 

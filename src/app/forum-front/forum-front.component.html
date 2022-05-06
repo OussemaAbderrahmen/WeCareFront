@@ -3,7 +3,7 @@
 <div class="container">
 <div class="row">
    
-            <div class="col-sm-12" *ngFor="let post of listPosts" >
+            <div class="col-sm-12" *ngFor="let post of listPosts | paginate: { itemsPerPage: 1, currentPage: pForumFront }" >
                 <div class="panel panel-white post">
                     <div class="post-heading">
                         <div class="pull-left image">
@@ -79,7 +79,8 @@
                         
                     </div>
                 </div>
-                
+                <pagination-controls (pageChange)="pForumFront = $event"></pagination-controls>
+
             </div>
 <!--             
             <iframe

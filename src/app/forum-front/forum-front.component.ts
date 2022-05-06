@@ -21,6 +21,7 @@ export class ForumFrontComponent implements OnInit {
   responseComment !: Comments;
   id !: number 
   idComment!:number
+  pForumFront : number = 1;
   constructor(
     public postService: PostServiceService,
     public commentService : CommentService,

@@ -30,7 +30,7 @@
 <h1>All Posts</h1>
 <div class="container">
 <div class="row col-md-12">
-<div class="col-md-4" *ngFor="let post of listPosts">
+<div class="col-md-4" *ngFor="let post of listPosts | paginate: { itemsPerPage: 3, currentPage: p }">
   <div class="card-deck card col-md-12">
   <div>
     <img class="card-img-top" src="../../../assets/images/u2.webp" alt="Card image cap">
@@ -56,6 +56,7 @@
   </div>
 </div>
 </div> 
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 <div> <button (click)="addPost()" class="btn btn-success">add a New Post</button> </div>
 </div>
 
@@ -68,7 +69,7 @@
       <th>word description</th>
     </tr>
   </thead>
-  <tbody  *ngFor="let word of listWords" >
+  <tbody  *ngFor="let word of listWords | paginate: { itemsPerPage: 3, currentPage: pDictionnary }" >
     <tr>
       <td>{{word.idWord}}</td>
       <td>{{word.word}}</td>
@@ -78,10 +79,14 @@
       <td><button  class="btn btn-success" (click)="updateWord(word.idWord);">update</button></td>
     
     </tr>
+    
   </tbody>
+  <pagination-controls (pageChange)="pDictionnary = $event"></pagination-controls>
+
 </table>
 <div class="row">
-      <td><button  class="btn btn-success" (click)="addWord()">add</button></td>
+  
+      <td><button  class="btn btn-success"  (click)="addWord()">add</button></td>
 
 </div> 
 <!-- <iframe

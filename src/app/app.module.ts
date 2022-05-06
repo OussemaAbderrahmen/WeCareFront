@@ -9,8 +9,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FullComponent } from './layouts/full/full.component';
 import { DemoFlexyModule } from './demo-flexy-module'
-
-// Modules
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import {ToastrModule} from 'ngx-toastr';// Modules
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ComponentsModule } from './components/components.module';
 import { PostComponent } from './components/forum/update-post/update-post.component';
@@ -27,6 +27,7 @@ import { AddDictionaryComponent } from './components/forum/add-dictionary/add-di
     AddPostComponent,
     ForumFrontComponent,
     AddDictionaryComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -37,7 +38,9 @@ import { AddDictionaryComponent } from './components/forum/add-dictionary/add-di
     DashboardModule,
     ComponentsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

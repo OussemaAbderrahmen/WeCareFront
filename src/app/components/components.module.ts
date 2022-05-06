@@ -23,6 +23,8 @@ import { ForumComponent } from './forum/forum.component'
 import { PostComponent } from './forum/update-post/update-post.component';
 import { ForumFrontComponent } from '../forum-front/forum-front.component';
 import { UpdateDictionaryComponent } from './forum/update-dictionary/update-dictionary.component';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import {ToastrModule} from 'ngx-toastr';// Modules
 
 
 
@@ -51,7 +53,7 @@ import { UpdateDictionaryComponent } from './forum/update-dictionary/update-dict
     CommonModule,
     FeatherModule.pick(allIcons),
     DemoFlexyModule,
-    FormsModule
+    FormsModule,NgxPaginationModule,ToastrModule.forRoot()
   ],
   exports: [
     AlertsComponent,
