@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Posts } from 'src/app/models/Posts';
-
 import { PostServiceService } from '../../../Service/PostService/post-service.service';
 
 @Component({
@@ -20,8 +19,6 @@ export class AddPostComponent implements OnInit {
   ngOnInit(): void {
     this.post=new Posts(this.id,"","",0,new Date(),"",0,0,[]);
   }
-
-
   addPost(){
   
     this.postService.savePost(this.post).subscribe(
@@ -29,5 +26,4 @@ export class AddPostComponent implements OnInit {
         console.log(data),
         this.router.navigate(['forum'])})  
   } 
-
 }
