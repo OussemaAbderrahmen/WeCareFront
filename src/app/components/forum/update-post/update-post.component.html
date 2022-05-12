@@ -1,29 +1,20 @@
  <h5>Post</h5>
 <div class="container">
-
  <fieldset class="form-group">
    <label >Title</label>
    <input type="text" [(ngModel)]="post.titlePost" class="form-control" name="title" aria-required="true">
  </fieldset>
-
  <fieldset class="form-group">
   <label >Description</label>
   <input type="text"[(ngModel)]="post.descriptionPost" class="form-control" name="description" aria-required="true">
 </fieldset>
-
-
 <fieldset class="form-group">
     <label >date</label>
     <input type="date"[(ngModel)]="post.datePost " class="form-control" name="date" aria-required="true">
   </fieldset>
-
  <fieldset class="form-group">
   <label >Image</label>
   <input type="text" [(ngModel)]="post.imagePost" class="form-control" name="Tiktok" aria-required="true">
 </fieldset> 
-
-
-
   <button class="btn btn-success" (click)="updatePost()">save</button>
-  
 </div>
