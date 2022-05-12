@@ -1,0 +1,26 @@
+<app-mydash></app-mydash>
+<div style="margin-left: 310px;">
+<button class="btn "   (click)="remind()" style="background-color: cadetblue;">Send Them Emails </button>
+<br>
+<br><br>
+<table class="table">
+    <thead>
+      <tr>
+        
+        <th scope="col">Email</th>
+        <th scope="col">Eventname </th>
+     
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let item of liste">
+       
+        <td>{{item.name}}</td>
+        <td>{{item.email}}</td>
+       
+      </tr>
+     
+    
+    </tbody>
+  </table>
+  </div>

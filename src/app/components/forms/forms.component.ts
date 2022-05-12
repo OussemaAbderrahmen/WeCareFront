@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { EventService } from 'src/app/Services/event.service';
+import { eventt } from '../event/eventt';
 
 @Component({
   selector: 'app-forms',
@@ -8,12 +9,12 @@ import { Router } from '@angular/router';
 export class FormsComponent implements OnInit {
   
   checked = true;
-  
-  constructor(private _router: Router,) { }
+  event!:eventt
+  constructor(private myservice: EventService) { }
 
-  ngOnInit(): void {}
-
-  onBack(): void {
-    this._router.navigate(['/flexy/home']);
+  ngOnInit(): void {
+    
   }
+
+  
 }

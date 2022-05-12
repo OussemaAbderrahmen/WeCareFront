@@ -1,0 +1,49 @@
+<app-mydash></app-mydash>
+<div style="margin-left: 250px;">
+<!-- Form Layout -->
+<div class="card">
+    <div class="card-body">
+      <h4 class="mb-32">Ajouter un Evennement</h4>
+      <form>
+        <div class="form-group">
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput type="text"  placeholder="Enter your Name" [(ngModel)]="event.eventName" name="something">
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Type</mat-label>
+          <input matInput type="Type" placeholder="Enter your type" name="ddd" [(ngModel)]="event.type">
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Depenses</mat-label>
+          <input matInput type="number" [(ngModel)]="event.depenses" name="ssss" >
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Price</mat-label>
+          <input matInput type="number" [(ngModel)]="event.price" name="dddz">
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field class="w-100 fs-16" appearance="outline">
+          <mat-label>Profit</mat-label>
+          <input matInput type="number" [(ngModel)]="event.profit" name="scfs">
+        </mat-form-field>
+      </div>
+        
+        <button mat-button class="btn btn-info fw-normal" (click)="addEvent()" type="submit">Ajouter</button>
+      </form>
+    </div>
+  </div>
+  
+  
+  
+  
+
+</div>
+

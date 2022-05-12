@@ -19,7 +19,14 @@ import { SliderComponent } from './slider/slider.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
-import { EventComponent } from './event/event.component'
+import { EventComponent } from './event/event.component';
+import { MychartComponent } from './mychart/mychart.component';
+import { MydashComponent } from './mydash/mydash.component';
+import { MyalleventsComponent } from './myallevents/myallevents.component';
+import { AddEventComponent } from './add-event/add-event.component';
+import { BestUserComponent } from './best-user/best-user.component';
+import { StatadminComponent } from './statadmin/statadmin.component';
+import { RemindComponent } from './remind/remind.component'
 
 
 @NgModule({
@@ -40,6 +47,13 @@ import { EventComponent } from './event/event.component'
     ButtonsComponent,
     TooltipsComponent,
     EventComponent,
+    MychartComponent,
+    MydashComponent,
+    MyalleventsComponent,
+    AddEventComponent,
+    BestUserComponent,
+    StatadminComponent,
+    RemindComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,152 @@
+<app-mydash></app-mydash>
+<div style="margin-left: 310px;">
+   
+
+
+ 
+<!DOCTYPE html>
+<html>
+<head>
+  
+  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 33%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+</style>
+</head>
+<body  >
+  
+  
+  
+<div class="row">
+  <div class="column" *ngFor="let item of et!">
+    <div class="card " style="border-color: #03c9d7;;" >
+      <img src="assets/images/em.jpg" class="w-100" alt=""/>
+      <br>
+      <h4 style="color:#03c9d7; " > {{item.eventName}}</h4>
+      <p> Type : {{item.type}}</p>
+      <p style="color:#03c9d7; ">Price : {{item.price}} Dt</p>
+      <div action="" class=" row btn-group">
+        <div class="column">
+        <button mat-button  class="link-danger" style=" color: #03c9d7 "(click)="delete(item.eventId)">delete</button> 
+      </div>
+      <div class="column">
+        <button mat-button class="link-success" style=" color: #03c9d7; " (click)="openPopup2()" (click)="getbyid(item.eventId)" >update</button>
+      </div>
+        <div class="column">
+        <button mat-button class="link-secondary" style=" color: #03c9d7; "(click)="openPopup()" (click)="eventDetails(item.eventId)">Details</button>
+      </div>
+    </div>
+     
+    </div>
+  </div>
+
+   
+</div>
+
+</body>
+</html>
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+  <div class="modal-content">
+  <div class="modal-body">
+ <p> <b> Name: </b>  {{event.eventName}}</p>
+ <p> <b> Type </b>: {{event.type}}</p>
+ <p><b>StartDate</b>: {{event.startDate}}</p>
+ <p><b>EndDate</b>: {{event.endDate}}</p>
+ <p><b> Price</b>: {{event.price}}</p>
+ </div>
+ <div class="modal-footer">
+ <button type="button" class="btn btn-danger" (click)="closePopup()">Close
+ </button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStylee}">
+  <div class="modal-dialog" role="document">
+  <div class="modal-content">
+  <div class="modal-body">
+    <form>
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput type="text"  placeholder="Enter your Name" [(ngModel)]="event.eventName" name="something">
+      </mat-form-field>
+
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Type</mat-label>
+        <input matInput type="Type" placeholder="Enter your type" name="ddd" [(ngModel)]="event.type">
+      </mat-form-field>
+
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Depenses</mat-label>
+        <input matInput type="number" [(ngModel)]="event.depenses" name="ssss" >
+      </mat-form-field>
+
+    
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" [(ngModel)]="event.price" name="dddz">
+      </mat-form-field>
+
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Profit</mat-label>
+        <input matInput type="number" [(ngModel)]="event.profit" name="scfs">
+      </mat-form-field>
+
+      
+      
+    </form>
+ </div>
+ <div class="modal-footer">
+  <button mat-button class="btn btn-info fw-normal" (click)="updateevent()" type="submit">Update</button>
+ <button type="button" class="btn btn-danger" (click)="closePopup2()">Close
+ </button>
+</div>
+</div>
+</div>
+</div>
+</div>

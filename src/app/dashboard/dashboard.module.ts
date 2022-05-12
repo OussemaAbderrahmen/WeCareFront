@@ -19,12 +19,14 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     ActivityComponent,
     ProductComponent,
     CardsComponent,
+    
   ],
   imports: [
     CommonModule,
     DemoFlexyModule,
     FormsModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    
   ],
   exports: [
     DashboardComponent,

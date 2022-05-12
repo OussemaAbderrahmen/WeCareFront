@@ -1,0 +1,113 @@
+<app-mydash></app-mydash>
+<div style="margin-left: 310px;">
+    <app-mychart></app-mychart>
+    <style>
+        .column {
+          float: left;
+          width: 50%;
+          padding: 0 10px;
+        }
+        .row {margin: 0 -5px;}
+        
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        
+        /* Responsive columns */
+        @media screen and (max-width: 600px) {
+          .column {
+            width: 100%;
+            display: block;
+            margin-bottom: 20px;
+          }
+        }
+        </style>
+        
+        
+        <div class="row">
+        <div class="column">
+        <div class="card bg-light mb-3" style="max-width: 30rem;">
+            <div class="card-body">
+              <h4 class="card-title" >Best rating</h4>
+              <p class="card-text">The event with the best rating this month is :</p>
+              <p><u>Name :</u> {{ev.event_name}}</p>
+              <p> <u>Type :</u> {{ev.type}}</p>
+              <p><u>Score :</u> {{ev.note}}/20</p>
+            </div>
+          </div>
+        </div>
+          <div class="column">
+          <div class="card border-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-body text-secondary">
+              <h4 class="card-title">Net Profit $</h4>
+              <p class="card-text">Enter the name of the event to see the net profit</p>
+              
+        <form>
+            <input type="text" class="form-control" name ="myid" id="myid" [(ngModel)]="myid" /> <br> <br>
+            
+        
+            <button mat-button class="btn btn-info fw-normal" (click)="profitnetevent(myid)" type="submit">Calculate</button><br><br>
+            <p> Net profit :{{nbre}}</p>
+        </form>
+            </div>
+        </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="column">
+          <div class="card bg-light mb-3" style="max-width: 30rem;">
+            <div class="card-body">
+              <h4 class="card-title">The active employee</h4>
+              <p class="card-text">Our employee who participated the most in the events is :</p>
+              <p><u>Name :</u> {{user.name}}</p>
+              <p><u>LastName :</u> {{user.lname}}</p>
+              <p><u>Number of entries :</u> {{user.nbr}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+            <div class="card border-secondary mb-3" style="max-width: 18rem;">
+              <div class="card-body text-secondary">
+                <h4 class="card-title">Bad Score !</h4>
+                <p class="card-text">Click here to delete the event with a bad rating</p>
+              <button mat-button class="btn btn-info fw-normal"  (click)="deletenote()"  type="submit"> Here</button> <br><br>
+          
+              </div>
+          </div>
+          </div>
+        </div>
+        <div class="row">
+        <div class="column">
+        <div class="card bg-light mb-3" style="max-width: 30rem;">
+            <div class="card-body">
+              <h4 class="card-title">Event rentable</h4>
+              <p class="card-text">the most profitable event is :</p>
+              <p><u>Name :</u> {{evr.event_name}}</p>
+              <p><u>Le meilleur profit :</u> {{evr.profit}} Dt</p>
+              
+            </div>
+          </div>
+        </div>
+        <div class="column">
+            <div class="card border-secondary mb-3" style="max-width: 18rem;">
+              <div class="card-body text-secondary">
+                <h4 class="card-title"> Most participated type </h4>
+                <p class="card-text">Enter the employee's name to see the type of event they attend the most </p>
+                
+          <form>
+              <input type="text" class="form-control" name ="myid" id="myid" [(ngModel)]="idt" /> <br> <br>
+          
+              <button mat-button class="btn btn-info fw-normal" (click)="typeleplusparticipe(idt)" type="submit">View</button><br><br>
+              <p> Type : {{typeev.type}}</p>
+          </form>
+              </div>
+          </div>
+          </div>
+          
+        </div>
+        
+          
+</div>
