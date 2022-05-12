@@ -28,9 +28,7 @@ export class UpdateDictionaryComponent implements OnInit {
       )
     }
   }
-
   updateWord(){
-
     this.dictionaryService.updateWord(this.word,this.id).subscribe(
       data=>{
         console.log(data),
