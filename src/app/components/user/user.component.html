@@ -1,0 +1,52 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<section class="container py-5">
+  <h2 class="mb-8 me-8" style="margin-top: -70px;">Statistics Blocked/Unblocked Users</h2>
+  <br>
+  <mat-card>
+    <mat-card-content>
+      <div id="chart">
+        <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [labels]="chartOptions.labels"
+          [responsive]="chartOptions.responsive"></apx-chart>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <div class="row">
+    <div class="col-sm-10">
+      <h2 class="mb-8 me-8">Users</h2>
+    </div>
+    <div class="col-sm-2">
+      <button mat-raised-button class="mb-8 me-8" (click)="addUser()" color="basic" type="submit">New User
+        <mat-icon>person_add</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="row pt-3">
+    <!-- Author-->
+    <div class="col-lg-3 col-sm-6 mb-30 pb-2" *ngFor="let u of userList | paginate :{ itemsPerPage :8, currentPage:p}">
+      <div class="team-card-style-3 mx-auto">
+        <div class="team-thumb">
+          <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Author Picture">
+        </div>
+        <h4 class="team-name">{{u.firstName}} {{u.lastName}}</h4>
+        <br>
+        <a class="team-contact-link" href="#">
+          <i class="fe-icon-user"></i>&nbsp;{{u.role}}
+        </a>
+        <a class="team-contact-link" href="mailto:u.email">
+          <i class="fe-icon-mail"></i>&nbsp;{{u.email}}
+        </a>
+        <br>
+        <button (click)="updateUser(u.userId)" mat-mini-fab class="mb-8 me-8" color="primary">
+          <mat-icon aria-label="Example icon-button with a update icon">settings</mat-icon>
+        </button>
+        <button (click)="deleteUser(u.userId)" mat-mini-fab class="mb-8 me-8" color="warn">
+          <mat-icon aria-label="Example icon-button with a trash icon">delete</mat-icon>
+        </button>
+        <button (click)="getuserbyid(u.userId)" mat-mini-fab class="mb-8 me-8" color="accent">
+          <mat-icon aria-label="Example icon-button with a list icon">assignment</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <pagination-controls (pageChange)="p=$event"></pagination-controls>
+</section>

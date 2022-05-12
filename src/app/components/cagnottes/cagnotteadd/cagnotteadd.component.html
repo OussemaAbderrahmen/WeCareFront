@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-body">
+        <h4 class="mb-32">New Jackpot</h4>
+        <form>
+            <mat-form-field class="w-50 fs-16" appearance="outline">
+                <mat-label>Title</mat-label>
+                <input matInput type="text" [(ngModel)]="cagnotte.cagnotteTitle" name="cagnotteTitle"
+                    placeholder="Enter the title">
+            </mat-form-field>
+            <mat-form-field class="w-50 fs-16" appearance="outline">
+                <mat-label>Description</mat-label>
+                <input matInput type="text" [(ngModel)]="cagnotte.cagnotteDescription" name="cagnotteDescription"
+                    placeholder="Enter the description">
+            </mat-form-field>
+            <mat-form-field class="w-50 fs-16" appearance="outline">
+                <mat-label>Jackpot's Type</mat-label>
+                <mat-select [(ngModel)]="cagnotte.typeCagnotte" (ngModelChange)="primaryModeChangeHandler($event)"
+                    name="typeCagnotte">
+                    <mat-option *ngFor="let label of modesLabels" [value]="label">{{label}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <label>Image</label>
+            <input type="file" [(ngModel)]="cagnotte.image" name="image">
+            <button mat-button class="btn btn-info fw-normal" (click)="addCagnotte()" type="submit">Save</button>
+        </form>
+    </div>
+</div>

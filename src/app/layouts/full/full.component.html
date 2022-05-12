@@ -13,8 +13,32 @@
       </div>
 
       <div class="pt-8">
-        <ul>
-          <li class="list-group mb-8" *ngFor="let sidenav of sidebarMenu">
+        <ul >
+          <li class="list-group mb-8"  >
+            <a *ngIf="isAdmin" matRipple [matRippleColor]="'#f7f8f443'" routerLink="user"
+            class="sidebar-menu fs-16 w-100 d-flex align-items-center" [routerLinkActive]="routerActive">
+            <i-feather name="user" class="feather-base me-16"></i-feather> <span
+              class="ps-4">User</span>
+          </a>
+          <a  matRipple [matRippleColor]="'#f7f8f443'" routerLink="cagnotte"
+          class="sidebar-menu fs-16 w-100 d-flex align-items-center" [routerLinkActive]="routerActive">
+          <i-feather name="award" class="feather-base me-16"></i-feather> <span
+            class="ps-4">Jackpot</span>
+        </a>
+        <a  matRipple [matRippleColor]="'#f7f8f443'" routerLink="notification"
+          class="sidebar-menu fs-16 w-100 d-flex align-items-center" [routerLinkActive]="routerActive">
+          <i-feather name="bell" class="feather-base me-16"></i-feather> <span
+            class="ps-4">Notification</span>
+        </a>
+        <a  matRipple [matRippleColor]="'#f7f8f443'" routerLink="promotion"
+          class="sidebar-menu fs-16 w-100 d-flex align-items-center" [routerLinkActive]="routerActive">
+          <i-feather name="award" class="feather-base me-16"></i-feather> <span
+            class="ps-4">Promotion</span>
+        </a>
+
+          </li>
+          <li class="list-group mb-8"  *ngFor="let sidenav of sidebarMenu">
+         
             <a matRipple [matRippleColor]="'#f7f8f443'" routerLink="{{ sidenav.link }}"
               class="sidebar-menu fs-16 w-100 d-flex align-items-center" [routerLinkActive]="routerActive">
               <i-feather name="{{ sidenav.icon }}" class="feather-base me-16"></i-feather> <span
@@ -61,22 +85,18 @@
         <button mat-button class="fs-16 pt-4 pb-4 ps-8 pe-8 text-light-muted" [matMenuTriggerFor]="menu">
           <img src="assets/images/user2.webp" class="rounded-circle" alt="">
           <span class="fw-light ms-8 text-secondary">Hi,</span>
-          <span class="fw-bold ms-8">Julia</span>
+          <span class="fw-bold ms-8">{{userData.userName}}</span>
           <i-feather name="chevron-down" class="feather-base mt-n2"></i-feather>
         </button>
         <mat-menu #menu="matMenu" class="profile-dropdown">
           <div class="p-16 mb-4">
-            <button mat-menu-item class="fs-16">Edit Profile</button>
-            <button mat-menu-item class="fs-16">Account</button>
-            <button mat-menu-item class="fs-16">Change Password</button>
-            <button mat-menu-item class="fs-16">My Settings</button>
+            <button mat-menu-item class="fs-16" (click)="updatemyProfile()">Edit Profile</button>
+            <button mat-menu-item class="fs-16"(click)="onLogout()" >Logout</button>
           </div>
 
           <hr>
 
-          <div class="p-16">
-            <button mat-button class="btn btn-info w-100">Logout</button>
-          </div>
+         
 
         </mat-menu>
       </div>
@@ -89,9 +109,7 @@
       </div>
     </div>
 
-    <p class="text-center pb-24 fs-16">© 2022 All rights reserved by <a
-        href="https://www.wrappixel.com/templates/category/free-angular-templates/" target="_blank"
-        class="text-indigo">Wrappixel.com</a></p>
+   
 
   </mat-sidenav-content>
 

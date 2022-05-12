@@ -1,7 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoginComponent } from 'src/app/login/login.component';
+import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
+import { HardcodedAuthenticationService } from 'src/app/Service/hardcoded-authentication.service';
+import { AuthService } from 'src/app/auth/auth.service';
+import { UserService } from 'src/app/Service/user.service';
 
 interface sidebarMenu {
   link: string;
@@ -14,9 +20,20 @@ interface sidebarMenu {
   templateUrl: './full.component.html',
   styleUrls: ['./full.component.scss']
 })
-export class FullComponent {
+export class FullComponent implements OnInit ,OnDestroy{
+isAdmin=true;
+isAuthenticate=false;
 
+  private userSub :Subscription;
   search: boolean = false;
+  userName=''
+   userData : {
+    userName : string,
+       id:string,
+       role:string,
+       _token:string,
+       _tokenExpirationDate:string;
+   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -24,10 +41,41 @@ export class FullComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(private authSevice : AuthService,private breakpointObserver: BreakpointObserver,private route :ActivatedRoute,private router : Router
+    ,private authService:AuthService
+    ,public userservice:UserService
+    ) { }
+  ngOnInit(): void {
+    this.userData= JSON.parse(localStorage.getItem('userData'))
+    console.log(this.userData)
+    if(this.userData.role==="ADMIN"){
+         this.isAdmin=true;
+    }else{
+          this.isAdmin=false;
+           console.log('oups')
+    } ;
+    this.userSub=this.authService.user.subscribe(user => {
+    this.isAuthenticate=!!user;
+    console.log(!user);
+    console.log(!!user);
+    });
+    // console.log(this.route.snapshot.params['userName'])
+    // this.userName=this.route.snapshot.params['userName']
+    
+  }
+  ngOnDestroy(): void {
+    this.userSub.unsubscribe();
+  }
+  onLogout() {
+    this.authService.logout()
+  }
+  updatemyProfile(){
+      this.router.navigate(['userupdate', this.userData.id])
+  }
 
   routerActive: string = "activelink";
 
+  
   sidebarMenu: sidebarMenu[] = [
     {
       link: "/home",
@@ -40,7 +88,7 @@ export class FullComponent {
       menu: "Buttons",
     },
     {
-      link: "/forms",
+      link: "/forms/:username",
       icon: "layout",
       menu: "Forms",
     },
@@ -49,6 +97,8 @@ export class FullComponent {
       icon:"layout",
       menu:"Forum"
     },
+    
+    
     {
       link: "/alerts",
       icon: "info",
@@ -120,5 +170,8 @@ export class FullComponent {
       menu: "Slide Toggle",
     },
   ]
+
+ 
+
 
 }

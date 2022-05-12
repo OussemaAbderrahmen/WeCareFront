@@ -4,6 +4,51 @@
   box-sizing: border-box;
   font-family: $bodyfont;
 }
+/*******************
+Chartistt chart css
+******************/
+.barchrt {
+  .ct-series-a .ct-bar {
+    stroke: green;
+  }
+  .ct-series-b .ct-bar {
+    stroke:blue;
+  }
+}
+
+.piechart {
+  .ct-series-a .ct-slice-donut {
+    stroke: blue;
+  }
+  .ct-series-b .ct-slice-donut {
+    stroke: green;
+  }
+  .ct-series-c .ct-slice-donut {
+    stroke: purple;
+  }
+  .ct-series-d .ct-slice-donut {
+    stroke: yellow;
+  }
+  .ct-series-e .ct-slice-donut {
+    stroke:red;
+  }
+}
+
+/*******************
+list inline
+*******************/
+.list-inline {
+  margin-left: 0px;
+  padding: 0px;
+  li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 10px;
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
 
 // .mat-drawer-container {
 //   background-color: $body-color;
@@ -35,6 +80,7 @@ mat-card {
   border-radius: 20px !important;
   padding: 0 !important;
 }
+
 
 .card-body {
   padding: 30px;

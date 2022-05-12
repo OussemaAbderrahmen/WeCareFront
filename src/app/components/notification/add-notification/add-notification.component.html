@@ -1,0 +1,52 @@
+<p>add-notification works!</p>
+<!-- Form Layout -->
+<div class="card">
+    <div class="card-body">
+        <h4 class="mb-32">New notification</h4>
+        <form>
+            <mat-form-field class="w-50 fs-16" appearance="outline">
+                <mat-label>Title</mat-label>
+                <input matInput type="text" [(ngModel)]="notification.titleNotification" name="title" placeholder="title">
+            </mat-form-field>
+
+            <mat-form-field class="w-50 fs-16" appearance="outline">
+                <mat-label>description</mat-label>
+                <input matInput type="text" [(ngModel)]="notification.description" name="description" placeholder="Enter your text">
+            </mat-form-field>
+
+           
+
+            <mat-form-field class="w-100 fs-16" appearance="outline">
+                <mat-label>Usernotif</mat-label>
+                <input matInput type="text" >
+            </mat-form-field>
+<!-- ============================
+            <mat-form-field class="w-100 fs-16" appearance="outline">
+                <mat-label>Textarea</mat-label>
+                <textarea matInput rows="6" placeholder="Write your message" value="Default Value"></textarea>
+            </mat-form-field>
+ ================================== -->
+            <mat-form-field class="w-100 fs-16" appearance="outline">
+                <mat-label> Date de notification</mat-label>
+                <input matInput type="datetime-local" [ngModel]="notification.DateDeNotification | date:'yyyy-MM-ddThh:mm'" (ngModelChange)="notification.DateDeNotification" name="Date" >
+            </mat-form-field>
+  
+            <section class="fs-16 mb-32">
+                <mat-checkbox color="primary" [checked]="checked" class="d-block mb-16">Lue</mat-checkbox>
+                <mat-checkbox color="primary" [checked]="checked" class="d-block mb-16">NonLue</mat-checkbox>
+              <!--<mat-checkbox class="op-7" [disabled]="true">Disabled</mat-checkbox>--->  
+            </section>
+         <!-- ============================
+            <mat-radio-group color="primary" class="fs-16" aria-label="Select an option">
+                <mat-label class="text-secondary">Gender</mat-label>
+                <mat-radio-button value="1" class="mt-8 mb-16 d-block" [checked]="checked">Female</mat-radio-button>
+                <mat-radio-button value="2" class="d-block mb-16">Male</mat-radio-button>
+                <mat-radio-button value="3" class="d-block mb-36">Other</mat-radio-button>
+            </mat-radio-group>
+   ================================== -->
+           
+
+            <button mat-button class="btn btn-info fw-normal" (click)="addNotification()" type="submit">Save</button>
+        </form>
+    </div>
+</div>

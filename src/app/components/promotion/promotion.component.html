@@ -1,0 +1,43 @@
+<mat-card class="w-100">
+    <mat-card-content>
+      <h4 class="mb-56">promotions</h4>
+      <div class="table-responsive">
+        <table mat-table [dataSource]="promotionList" class="text-nowrap w-100">
+  
+          <ng-container matColumnDef="PromotionId">
+            <th mat-header-cell *matHeaderCellDef> Id </th>
+            <td mat-cell class="fw-medium" *matCellDef="let promotions" > {{promotions.PromotionId}} </td>
+          </ng-container>
+         <ng-container matColumnDef="promotionTitle">
+            <th mat-header-cell *matHeaderCellDef>  Title</th>
+            <td mat-cell *matCellDef="let promotions ">
+              <p class="mb-0 fw-medium">{{ promotions.promotionTitle}}</p>
+              
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>  Action </th>
+            <td mat-cell *matCellDef="let promotions ">
+              <button (click)="updatePromotion(promotions.PromotionId)" mat-mini-fab class="mb-8 me-8"  color="primary">
+                <mat-icon aria-label="Example icon-button with a update icon">update</mat-icon>
+              </button>
+              <button (click)="deletePromotion(promotions.PromotionId)" mat-mini-fab class="mb-8 me-8" color="warn">
+                <mat-icon aria-label="Example icon-button with a trash icon">delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  
+  <div class="container">
+  
+    <div class="row">
+      <button mat-raised-button class="mb-8 me-8" (click)="addPromotion()" color="accent" type="submit">New Promotion</button>
+      
+      
+    </div>
+  </div>

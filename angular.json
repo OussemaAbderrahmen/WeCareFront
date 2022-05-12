@@ -23,6 +23,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "rxjs-compat",
+              "rxjs",
+              "hammerjs",
+              "chartist"              
+            ],
             "outputPath": "dist/flexy-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -35,7 +41,9 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/styles/style.scss"
+              "src/assets/styles/style.scss",
+              "node_modules/chartist/dist/chartist.css"
+  
             ],
             "scripts": [
               "node_modules/apexcharts/dist/apexcharts.min.js"

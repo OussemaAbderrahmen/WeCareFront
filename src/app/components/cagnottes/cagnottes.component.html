@@ -1,0 +1,60 @@
+<mat-card class="w-100">
+  <mat-card-content>
+    <div class="row">
+      <div class="col-sm-10">
+      <h4 class="mb-56">Jackpots</h4>
+    </div>
+    <div class="col-sm-2">
+    <button mat-raised-button class="mb-8 me-8" (click)="addcagnotte()" color="accent" type="submit">New
+      Jackpot<mat-icon>add</mat-icon></button>
+    </div>
+    </div>
+    
+    <div class="table-responsive">
+      <table mat-table [dataSource]="cagnotteList | paginate :{ itemsPerPage :8, currentPage:p}" class="text-nowrap w-100">
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Name</th>
+          <td mat-cell *matCellDef="let cagnotte ">
+            <p class="mb-0 fw-medium">{{ cagnotte.cagnotteTitle }}</p>
+            <p class="mb-0 fw-normal op-5">{{ cagnotte.typeCagnotte }}</p>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let cagnotte">
+            <p class="mb-0 fw-medium op-5">{{cagnotte.cagnotteDescription}}</p>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="moneycollected">
+          <th mat-header-cell *matHeaderCellDef> Money Collected </th>
+          <td mat-cell *matCellDef="let cagnotte">
+            <p class="mb-0 fw-medium">{{cagnotte.moneyCollected}} TND</p>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action</th>
+          <td mat-cell *matCellDef="let cagnotte ">
+            <button (click)="updatecagnotte(cagnotte.cagnotteId)" mat-mini-fab class="mb-8 me-8" color="primary">
+              <mat-icon aria-label="Example icon-button with a update icon">settings</mat-icon>
+            </button>
+            <button (click)="deletecagnotte(cagnotte.cagnotteId)" mat-mini-fab class="mb-8 me-8" color="warn">
+              <mat-icon aria-label="Example icon-button with a trash icon">delete</mat-icon>
+            </button>
+            <button (click)="getcagnottebyid(cagnotte.cagnotteId)" mat-mini-fab class="mb-8 me-8" color="accent">
+              <mat-icon aria-label="Example icon-button with a list icon">list</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<pagination-controls (pageChange)="p=$event"></pagination-controls>
+<div class="container">
+  <div class="row">
+    
+  </div>
+</div>
