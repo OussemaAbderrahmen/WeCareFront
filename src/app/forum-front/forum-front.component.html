@@ -1,8 +1,6 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-
 <div class="container">
 <div class="row">
-   
             <div class="col-sm-12" *ngFor="let post of listPosts | paginate: { itemsPerPage: 1, currentPage: pForumFront }" >
                 <div class="panel panel-white post">
                     <div class="post-heading">
@@ -40,8 +38,7 @@
                             </div>
                         </div> 
                         <ul class="comments-list" *ngFor="let c of post.commentposts ">
-                            <li class="comment" >
-                                
+                            <li class="comment" >   
                                 <a class="pull-left" href="javascript:void(0);">
                                     <img class="avatar" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">
                                 </a>
@@ -74,34 +71,11 @@
                                     <p>{{cc.comment}}</p>
                                     </div> -->
                             </li>
-                            
                         </ul>
-                        
                     </div>
-
-                    
                 </div>
                 <pagination-controls (pageChange)="pForumFront = $event"></pagination-controls>
-
             </div>
-            
-<!--             
-            <iframe
-            allow="microphone;"
-            width="350"
-            height="430"
-            src="https://console.dialogflow.com/api-client/demo/embedded/b1dc394e-07cd-4054-98ac-d098a51a8720">
-        </iframe> -->
         </div>
-        <!-- Search Box
-<div *ngIf="search" class="search-section d-flex align-items-center">
-    <mat-form-field class="w-100" color="primary" appearance="legacy">
-      <mat-label class="fs-16">Search Here</mat-label>
-      <input matInput>
-    </mat-form-field>
-    <button mat-icon-button (click)="search=!search">
-      <i-feather name="x-circle" class="mt-n3 text-light-muted feather-base text-dark"></i-feather>
-    </button>
-  </div> -->
     </div>
 
