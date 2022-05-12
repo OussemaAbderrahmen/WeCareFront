@@ -27,16 +27,17 @@
         </div>
       </div>
       </div>  -->
-<h1>All Posts</h1>
+  
 <div class="container">
+<h1>All Posts</h1>
 <div class="row col-md-12">
 <div class="col-md-4" *ngFor="let post of listPosts | paginate: { itemsPerPage: 3, currentPage: p }">
   <div class="card-deck card col-md-12">
   <div>
     <img class="card-img-top" src="../../../assets/images/u2.webp" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">{{post.titlePost}}</h5>
-      <p class="card-text">{{post.descriptionPost}}</p>
+      <h5 class="card-title">Title : {{post.titlePost}}</h5>
+      <p class="card-text">Description :{{post.descriptionPost}}</p>
       <p class="card-text"></p>
       <p class="card-text"><small class="text-muted">Post Date :</small> {{post.datePost | date | uppercase}}</p>
       <div style="margin-bottom: 10px;align-items: center;" >
@@ -61,12 +62,20 @@
 </div>
 
  <div class="container" style="margin-top: 20px; align-self: center;">
+  <div class="form-group row">
+    <label for="search" class="col-sm-2 col-form-label" style="text-align: right;">Search</label>
+    <div class="com-sm-6">
+      <input type="text" class="form-control" id="search">
+    </div>
 <table class="table">
   
   <thead>
     <tr>
       <th>word Id</th>
       <th>word description</th>
+      <th></th>
+      <th>Action</th>
+      
     </tr>
   </thead>
   <tbody  *ngFor="let word of listWords | paginate: { itemsPerPage: 3, currentPage: pDictionnary }" >
@@ -84,11 +93,31 @@
   <pagination-controls (pageChange)="pDictionnary = $event"></pagination-controls>
 
 </table>
+</div>
 <div class="row">
   
       <td><button  class="btn btn-success"  (click)="addWord()">add</button></td>
 
 </div> 
+
+
+
+<!-- <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Word</th>
+  
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let word of listWords">
+      <td>{{ word.idWord }}</td>
+      <td>{{ word.word }}</td>
+    </tr>
+  </tbody>
+</table> -->
+
 <!-- <iframe
     allow="microphone;"
     width="350"

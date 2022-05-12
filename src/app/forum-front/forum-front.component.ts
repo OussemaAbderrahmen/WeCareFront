@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ComponentsModule } from '../components/components.module';
 import { Comments } from '../models/Comments';
 
 import { Posts } from '../models/Posts';
@@ -22,6 +21,7 @@ export class ForumFrontComponent implements OnInit {
   id !: number 
   idComment!:number
   pForumFront : number = 1;
+  pCommentFront : number =1;
   constructor(
     public postService: PostServiceService,
     public commentService : CommentService,

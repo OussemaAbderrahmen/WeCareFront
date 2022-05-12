@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
-import { FormsModule } from '@angular/forms'
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,8 @@ import { PostComponent } from './components/forum/update-post/update-post.compon
 import { AddPostComponent } from './components/forum/add-post/add-post.component';
 import { ForumFrontComponent } from './forum-front/forum-front.component';
 import { AddDictionaryComponent } from './components/forum/add-dictionary/add-dictionary.component';
+import { DataTablesModule } from 'angular-datatables';
+
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import { AddDictionaryComponent } from './components/forum/add-dictionary/add-di
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    DataTablesModule.forRoot(),ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -25,6 +25,7 @@ import { ForumFrontComponent } from '../forum-front/forum-front.component';
 import { UpdateDictionaryComponent } from './forum/update-dictionary/update-dictionary.component';
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import {ToastrModule} from 'ngx-toastr';// Modules
+import { DataTablesModule } from 'angular-datatables';
 
 
 
@@ -53,7 +54,7 @@ import {ToastrModule} from 'ngx-toastr';// Modules
     CommonModule,
     FeatherModule.pick(allIcons),
     DemoFlexyModule,
-    FormsModule,NgxPaginationModule,ToastrModule.forRoot()
+    FormsModule,NgxPaginationModule,ToastrModule.forRoot(),DataTablesModule.forRoot()
   ],
   exports: [
     AlertsComponent,

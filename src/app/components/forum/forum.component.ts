@@ -6,6 +6,7 @@ import { Dictionary } from 'src/app/models/Dictionary';
 import { PostServiceService } from 'src/app/Service/PostService/post-service.service';
 import { NgxPaginationModule } from 'ngx-pagination'; // At the top of your module
 import { ToastrService } from 'ngx-toastr';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-forum',
@@ -21,6 +22,9 @@ export class ForumComponent implements OnInit {
    listWords : Dictionary[] = [];
    p:number =1;
    pDictionnary : number =1;
+   dtOptions: DataTables.Settings = {};
+   dtTrigger : Subject<any> = new Subject<any>();
+
   constructor(
     public postService : PostServiceService,
     public dictionaryService : DictionaryService,
@@ -38,12 +42,19 @@ export class ForumComponent implements OnInit {
       }
     );
 
+
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 2
+    };
+
     this.dictionaryService.retrieveAllWords().subscribe(
       response=>{
         console.log(response);
         this.listWords=response;
+        this.dtTrigger.next;
       }
-    )
+    );
    
   }
 

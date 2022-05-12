@@ -39,7 +39,7 @@
                                 <i class="fa fa-edit" (click)="commentPost(post.postId)"></i> 
                             </div>
                         </div> 
-                        <ul class="comments-list" *ngFor="let c of post.commentposts">
+                        <ul class="comments-list" *ngFor="let c of post.commentposts ">
                             <li class="comment" >
                                 
                                 <a class="pull-left" href="javascript:void(0);">
@@ -78,10 +78,13 @@
                         </ul>
                         
                     </div>
+
+                    
                 </div>
                 <pagination-controls (pageChange)="pForumFront = $event"></pagination-controls>
 
             </div>
+            
 <!--             
             <iframe
             allow="microphone;"
