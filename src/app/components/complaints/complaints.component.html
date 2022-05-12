@@ -1,43 +1,76 @@
 <h1>Complaint's List</h1>
 
-
-<div class="container">
-<table class="table">
-  
-  <thead>
-    <tr>
-      <th>ComplaintsId</th>
-      <th>ComplaintDate</th>
-      <th>ComplaintImage</th>
-      <th>ComplaintDescription</th>
-      <th>status</th>
-      <th>ComplaintType</th>
-    </tr>
-  </thead>
-  <tbody  *ngFor="let complaint of listComplaints" >
-    <tr>
-      <td>{{complaint.complaintId}}</td>
-      <td>{{complaint.complaintDate | date | uppercase}}</td>
-      <td>{{complaint.complaintImage}}</td>
-      <td>{{complaint.complaintDescription}}</td>
-      <td>{{complaint.status}}</td>
-      <td>{{complaint.complaintType}}</td>
-   
-      <td><button  class="btn btn-success">update</button></td>
-    <td> <button (click)="deleteComplaint(complaint.complaintId)" class="btn btn-danger">Delete</button></td>
-    </tr>
-  </tbody>
-</table>
-<div class="row">
-     <td><button type="button" class="btn btn-success" (click)="btnClick();"><i class="fa fa-plus"></i> Add</button>   </td>  
+ <mat-card>
+  <mat-card-content>
+    <h4 class="mb-32"></h4>
+    <button mat-raised-button color (click)="btnPie()"  >Statistics</button>
+    <button mat-raised-button color (click)="socialMedia()"  >Social Media</button>
+  </mat-card-content> 
 
 
+</mat-card>
+<div>
 
 </div>
-<!-- <iframe
+<label for="Search"> Search</label>
+<div class="col-sm-6"></div>
+<input type="text" [(ngModel)]="searchValue" class="form-control" id="search" />
+<div class="container">
+  <!-- <table class="table"> -->
+ 
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+
+    <thead>
+      <tr>
+        <th>ComplaintsId</th>
+        <th>ComplaintDate</th>
+        <th>ComplaintImage</th>
+        <th>ComplaintDescription</th>
+        <th>status</th>
+        <th>ComplaintType</th>
+      </tr>
+    </thead>
+
+
+    <tbody *ngFor="let complaint of listComplaints  | paginate: { itemsPerPage: 10, currentPage: p } | searchfilter: searchValue">
+      <tr>
+        <td>{{ complaint.complaintId }}</td>
+        <td>{{ complaint.complaintDate | amTimeAgo}}</td>
+        <td><img src="complaintImage " height="100" width="100" /></td>
+        <td>{{ complaint.complaintDescription }}</td>
+        <td>{{ complaint.status }}</td>
+        <td>{{ complaint.complaintType }}</td>
+
+        <td><button class="btn btn-success">update</button></td>
+        <td>
+          <button
+            (click)="deleteComplaint(complaint.complaintId)"
+            class="btn btn-danger"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </table>
+  
+ 
+
+  <div class="row">
+    <td>
+      <button type="button" class="btn btn-success" (click)="btnClick()">
+        <i class="fa fa-plus"></i> Add
+      </button>
+    </td>
+  </div>
+
+  <!-- <iframe
     allow="microphone;"
     width="350"
     height="430"
     src="https://console.dialogflow.com/api-client/demo/embedded/b1dc394e-07cd-4054-98ac-d098a51a8720">
 </iframe> -->
 </div>
+

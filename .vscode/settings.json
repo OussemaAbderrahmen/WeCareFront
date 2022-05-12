@@ -1,6 +1,8 @@
 {
     "cSpell.words": [
         "addcomplaint",
-        "complaintsaveform"
-    ]
+        "complaintsaveform",
+        "Flexy"
+    ],
+    "typescript.tsdk": "node_modules\\typescript\\lib"
 }

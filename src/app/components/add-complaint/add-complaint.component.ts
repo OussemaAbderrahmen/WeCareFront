@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ComplaintService } from 'src/app/Service/complaint.service';
 import { Complaints } from '../complaints/complaints.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { HttpEventType, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpEventType, HttpResponse } from '@angular/common/http';
 @Component({
   selector: 'app-add-complaint',
   templateUrl: './add-complaint.component.html',
@@ -12,8 +12,10 @@ import { HttpEventType, HttpResponse } from '@angular/common/http';
 })
 export class AddComplaintComponent implements OnInit {
 
-  constructor(private complaintservice:ComplaintService) { }
+  @ViewChild('recaptcha', {static: true }) recaptchaElement!: ElementRef;
 
+  siteKey:string;
+  constructor(private complaintservice:ComplaintService) { this.siteKey="6LchYKcfAAAAAICZScgofSyTDKRijkqfXZrhYOck"}
   selectedFiles?: FileList;
   currentFile?: File;
   message = '';
@@ -38,10 +40,10 @@ export class AddComplaintComponent implements OnInit {
     complaintDescription:new FormControl('' , [Validators.required  ] ),  
     complaintImage:new FormControl(),  
     status:new FormControl(),
-    complaintDate:new FormControl(), 
+    complaintDate:new FormControl()
   });  
 
-  
+
     
   
 

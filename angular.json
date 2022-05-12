@@ -35,10 +35,13 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/styles/style.scss"
+              "src/assets/styles/style.scss",
+              "node_modules/datatables.net-dt/css/jquery.dataTables.min.css"
             ],
             "scripts": [
-              "node_modules/apexcharts/dist/apexcharts.min.js"
+              "node_modules/apexcharts/dist/apexcharts.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/datatables.net/js/jquery.dataTables.min.js"
             ]
           },
           "configurations": {
@@ -108,7 +111,9 @@
               "src/styles.scss",
               "src/assets/styles/style.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "https://apps.elfsight.com/p/platform.js"
+            ]
           }
         }
       }

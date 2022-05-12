@@ -1,0 +1,18 @@
+<h2 class="mb-56">Top Complainers</h2>
+
+<div class="table-responsive">
+<table >
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Occurence</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let complain of mostComplain">
+    <tr>
+      <td>{{ complain.first_name }}</td>
+      <td>{{ complain.occ }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
