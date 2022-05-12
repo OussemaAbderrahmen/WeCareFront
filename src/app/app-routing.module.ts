@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { User } from 'angular-feather/icons';
+import { ActiveuserComponent } from './components/activeuser/activeuser.component';
+import { ActualityComponent } from './components/actuality/actuality.component';
+import { UpdatepubComponent } from './components/actuality/updatepub/updatepub.component';
 import { AlertsComponent } from './components/alerts/alerts.component';
+import { BestpubComponent } from './components/bestpub/bestpub.component';
 import { ButtonsComponent } from './components/buttons/buttons.component';
+import { ChatComponent } from './components/chat/chat.component';
 import { ChipsComponent } from './components/chips/chips.component';
+import { DashactualityComponent } from './components/dashactuality/dashactuality.component';
 import { ExpansionComponent } from './components/expansion/expansion.component';
 import { FormsComponent } from './components/forms/forms.component';
 import { ForumComponent } from './components/forum/forum.component';
@@ -16,6 +23,8 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { TooltipsComponent } from './components/tooltips/tooltips.component';
+import { UserComponent } from './components/user/user.component';
+import { WorstpubComponent } from './components/worstpub/worstpub.component';
 import { ProductComponent } from './dashboard/dashboard-components/product/product.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FullComponent } from './layouts/full/full.component';
@@ -43,7 +52,19 @@ const routes: Routes = [
       {path:"slide-toggle", component:SlideToggleComponent},
       {path:"tooltip", component:TooltipsComponent},
       {path:"button", component:ButtonsComponent},
-      {path:"forum",component:ForumComponent}
+      {path:"forum",component:ForumComponent},
+      {path:"actuality",component:ActualityComponent},
+      {path:"dashactuality",component:DashactualityComponent},
+      {path:"user",component:UserComponent},
+      {path:"chat",component:ChatComponent},
+      {path:"activeuser",component:ActiveuserComponent},
+      {path:"bestpub", component:BestpubComponent},
+      {path:"worstpub",component:WorstpubComponent},
+  
+
+      {path:"updatepub/:id",component:UpdatepubComponent},
+      {path:"updatepub/:id",redirectTo:'actuality',pathMatch:'full'},
+
     ]
   },
 

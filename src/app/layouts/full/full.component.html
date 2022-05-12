@@ -104,7 +104,9 @@
     <mat-label class="fs-16">Search Here</mat-label>
     <input matInput>
   </mat-form-field>
-  <button mat-icon-button (click)="search=!search">
+  <button mat-icon-button *ngFor= " let i of pub" >
     <i-feather name="x-circle" class="mt-n3 text-light-muted feather-base text-dark"></i-feather>
   </button>
+
+
 </div>

@@ -1,0 +1,31 @@
+<div class="card">
+<mat-card> 
+    <div class="card-body">
+        <h4 class="mb-32">Form Layout</h4>
+        <form>
+          <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Publiation Title</mat-label>
+            <input matInput type="text"  placeholder="Enter your Name" name="aaa" [(ngModel)]="p.publicationTitle" >
+          </mat-form-field>
+  
+          <div class="form-group state_raw">
+              <select class="custom-select" name="theme"  id="state_raw" required  [(ngModel)]="p.theme">
+                <option selected>theme</option>
+                <option [value]="type" *ngFor="let type of values">{{type}}</option>
+              </select>
+            </div>
+  
+          <mat-form-field class="w-100 fs-16" appearance="outline">
+            <mat-label>Textarea</mat-label>
+            <textarea matInput rows="6" placeholder="Write your message" name="PublicationDescription" [(ngModel)]="p.publicationDescription"></textarea>
+          </mat-form-field>
+  
+          <button mat-button class="btn btn-info fw-normal" (click)="updatepub(p.publicationId)">edit</button>
+        </form>
+      </div>
+
+      </mat-card>
+    </div>
+
+
+ <!-- Form Layout --> <!-- Form Layout --> <!-- Form Layout -->

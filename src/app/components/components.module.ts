@@ -19,7 +19,11 @@ import { SliderComponent } from './slider/slider.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { TooltipsComponent } from './tooltips/tooltips.component';
-import { ForumComponent } from './forum/forum.component'
+import { ForumComponent } from './forum/forum.component';
+import { ActualityComponent } from './actuality/actuality.component';
+import { UpdatepubComponent } from './actuality/updatepub/updatepub.component';
+import { UserComponent } from './user/user.component';
+
 
 
 @NgModule({
@@ -40,6 +44,10 @@ import { ForumComponent } from './forum/forum.component'
     ButtonsComponent,
     TooltipsComponent,
     ForumComponent,
+    ActualityComponent,
+    UpdatepubComponent,
+    UserComponent
+
   ],
   imports: [
     CommonModule,

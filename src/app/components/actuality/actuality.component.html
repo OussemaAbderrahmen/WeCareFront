@@ -1,0 +1,218 @@
+
+<button style="margin: 50px;"  class="btn btn-info" (click)="openPopup()">Add Publication </button>
+<div class="modal" tabindex="-1"role="dialog" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add New Publication </h4>
+      </div>
+      <div class="modal-body">
+        <div class="card gedf-card">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="posts-tab" data-toggle="tab" aria-selected="true"> <strong>New Post </strong></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                        <div class="form-group" >
+                            <label  for="message"></label>
+                           <form>
+                             <div class="mb-3">
+                            <input class="form-control" id="message" name="publicationtitile" placeholder="Your Publication Title " [(ngModel)]="p.publicationTitle" >
+                           </div>
+
+                           <div class="mb-3">
+                               <select class="custom-select" name="theme" required  [(ngModel)]="p.theme">
+                                 <option selected>theme</option>
+                                 <option [value]="type" *ngFor="let type of values"> {{type}}</option> 
+                               </select>
+                            </div>
+                            <div class="mb-3">
+                              <textarea class="form-control" id="message" rows="3"name="publicationdiscription" placeholder="What are you thinking?" [(ngModel)]="p.publicationDescription"></textarea>
+                           </div>
+
+                           <div class="col-md-6">
+                            <input type="file">
+                    
+                        </div>
+                       
+               </form>
+                           </div>
+
+                    </div>
+              
+                </div>
+                <div class=" btn-toolbar justify-content-between">
+                   <div class="btn-group">
+                      <button type="submit" class="btn btn-primary" (click)="addPublication()" >share</button>
+                  </div>
+                  
+                </div>
+            </div>
+           
+        </div>
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" 
+                (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+                   <!--- \\\\\\\Post-->
+
+       
+<!-- Form Layout -->
+<div class="container">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+<div class="container bootstrap snippets bootdey"  >
+    <div class="col-sm-12" >
+        <div class="panel panel-white post panel-shadow"   *ngFor="let i of pub " >
+            <div class="post-heading">
+                <div class="pull-left image">
+                    <img src="https://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                </div>
+                <div class="timeline-header">
+                    <div class="title h5" >
+                        <b>Ryan Haywood</b>
+                       <small>made a post.</small> 
+                        <span class="pull-right text-muted"> 
+                           <a class="edit" title="Edit" data-toggle="tooltip"  style="color:rgb(230, 138, 111)" (click)="updatepubrecord(i.publicationId)"><i class="material-icons">&#xE254;</i></a>
+                            <a class="delete" title="Delete" data-toggle="tooltip" style="color:rgb(230, 138, 111)" (click)="openPopup1()" ><i class="material-icons">&#xE872;</i></a> 
+                           <div class="modal" tabindex="-1"  role="dialog"  [ngStyle]="{'display':displayStyle1}">
+                           <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                               
+                                  <div class="modal-body">
+                                      <p> Are you sure you want to delete this publication ? </p>
+                                      <button style="margin: 50px;"  class="btn btn-primary" (click)="deletepub(i.publicationId)"> Delete </button>
+                                  </div>
+                                  <div class="modal-footer">
+                                      <button type="button" class="btn btn-danger" 
+                                              (click)="closePopup1()">
+                                      Close
+                                      </button>
+                                  </div>
+                                  </div>
+                              </div>
+                             </div>
+                        </span>
+                          
+                       
+                    </div>
+                    <h6 class="text-muted time">{{i.publicationDate}}</h6>
+                </div>
+            </div> 
+            <div class="post-description"> 
+               <h4>{{i.publicationTitle}}</h4>
+               <p>Type : {{i.theme}}</p>
+                <p>{{i.publicationDescription}}</p>
+                <div class="stats">
+                  
+                     <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"  style="color:rgb(230, 138, 111)" (click)="likepub(i.publicationId,2)" (click)="openpopup2()"></i> Like</a>
+                     <div class="modal"  tabindex="-1"  role="dialog" [ngStyle]="{'display':displayStyle2}">
+                         <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                         <div class="modal-body">
+                                                <p> Done </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" 
+                                                        (click)="closePopup2()"> Close </button>
+                                            </div>
+                                            </div>
+                                        </div>
+                          
+                                  </div>
+                                
+                     <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-down fa-fw fa-lg m-r-3"style="color:rgb(230, 138, 111)"(click)="dislikepub(i.publicationId,2) " (click)="openpopup2()"> </i> Dislike</a>
+                     <a href="javascript:;" class="m-r-15 text-inverse-lighter" ><i class="fa fa-comments fa-fw fa-lg m-r-3" style="color:rgb(230, 138, 111)" (click)="commentpub(i.publicationId)"></i> Comment</a> 
+                </div>
+                
+            </div>
+            <div class="post-footer">
+                <div class="input-group"> 
+                    <input class="form-control" placeholder="Add a comment" type="text" name="comment" [(ngModel)]="c.comment"  >
+                    <span class="input-group-addon">
+                        <i class="fa fa-edit"(click)="addcomm(i.publicationId,1)"></i>
+                    </span>
+                </div>
+      
+                <ul class="comments-list" *ngFor="let u of com">
+                    <li class="comment">
+                        <a class="pull-left" href="#">
+                            <img class="avatar" src="https://bootdey.com/img/Content/user_1.jpg" alt="avatar">
+                        </a>
+                        <div class="comment-body">
+                            <div class="comment-heading">
+                                <h4 class="user">ons shili</h4>
+                                <h5 class="time">{{u.commentDate}}</h5>
+                                
+                        <span class="pull-right text-muted">
+                           <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons" style="color:rgb(230, 138, 111)">&#xE254;</i></a>
+                           <a class="delete" title="Delete" data-toggle="tooltip" ><i class="material-icons"style="color:rgb(230, 138, 111)"(click)="deletecom(u.commentId)">&#xE872;</i></a>
+                         </span>
+
+
+                            </div>
+                            <p>{{u.comment}}</p>
+                        </div>
+                        <div>
+                           <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"  style="color:rgb(230, 138, 111)"(click)="likecomm(u.commentId,2)" (click)="openpopup2()"></i> Like</a>
+                           <a href="javascript:;" class="m-r-15 text-inverse-lighter"><i class="fa fa-thumbs-down fa-fw fa-lg m-r-3" style="color:rgb(230, 138, 111)"(click)="dislikecomm(u.commentId,2)" (click)="openpopup2()"></i> Dislike</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
